@@ -5,11 +5,11 @@
   <title>Heading Elements</title>
 </head>
 <body>
-  <h1>This is the Main Heading</h1>
-  <h2>Subheading 2</h2>
-  <h3>Subheading 3</h3>
-  <h4>Subheading 4</h4>
-  <h5>Subheading 5</h5>
+  <h1>vivek mehta</h1>
+  <h2>Btech IT</h2>
+  <h3>A1</h3>
+  <h4>A028</h4>
+  <h5>wp</h5>
   <h6>Subheading 6</h6>
    <header>
     header element - Some header information goes here. Usually consists of company logo, some tag line, etc. Sometimes, navigation is contained in the header as well.
