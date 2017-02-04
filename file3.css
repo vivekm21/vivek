@@ -1,0 +1,41 @@
+body
+{
+  background-image: url("https://images7.alphacoders.com/442/thumb-1920-442876.jpg");
+  background-attachment:fixed;
+background-position:center;
+color: dark blue;
+
+}
+
+h1 {
+     font-color: black
+     font-family: Georgia;
+     word-spacing: 0.25em;
+     letter-spacing: 0.3em;
+     text-transform: uppercase;
+     font-weight: bold;
+     text-align: center;
+}
+
+
+p{
+    font-family: "Georgia";
+    text-align: left;
+    word-spacing: 0.25em;
+    letter-spacing: 0.3em;
+    line-height: 1.5em;
+}
+
+
+h2{
+    font-style: italic;
+    text-align: center;
+    font-weight: bold;
+    
+}
+
+h3{
+    font-weight: bold;
+    text-align: center;
+    font-family: Georgia;
+}
