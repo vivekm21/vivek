@@ -1,33 +1,48 @@
-// Functions ARE objects
-function multiply(x, y) {
-  return x * y;
-}
-multiply.version = "v.1.0.0";
-console.log(multiply.version);
+var fn50 = function(){
+    var reverseSort = function(myArray,highest){
+        var x = 0,
+            y = 0,
+            z = 0,
+            temp = 0,
+            totalNum = myArray.length, // total numbers in array
+            flag = false, // is the numbers sorted in reverse while iteration
+            isAchieved = false; // whether we achieved the nth highest
 
+        while(x < totalNum){
+            y = x + 1; // start comparing 'yth' number which is next to 'xth' number.
 
-// Function factory
-function makeMultiplier(multiplier) {
-  var myFunc = function (x) {
-    return multiplier * x;
-  };
+            if(y < totalNum){
+                // start comparing 'xth' with the next number, and if 'xth' number less than its next position number, just swipe them
+                for(z = y; z < totalNum; z++){
 
-  return myFunc;
-}
+                    if(myArray[x] < myArray[z]){
+                        temp = myArray[z];
+                        myArray[z] = myArray[x];
+                        myArray[x] = temp;
+                        flag = true; // if number swiping done ?
+                    }else{
+                        continue;
+                    }   
+                }                   
+            }
 
-var multiplyBy3 = makeMultiplier(3);
-console.log(multiplyBy3(10));
-var doubleAll = makeMultiplier(2);
-console.log(doubleAll(100));
+            if(flag){
+                flag = false;
+            }else{
+                x++; // x holds the max number in series, now move to next position to find next highest number 
+                if(x > highest){ // if x is what the desired max number which we want flag it and break the loop to escape further iteration.
+                    isAchieved = true;
+                }   
+            }
+            if(isAchieved){
+                break;
+            }
+        }
 
+        print(myArray[(highest - 1)]);  
+    };
 
+    reverseSort([12,56,78,34,11,100,95],4); // passing the unsorted array of number's, and finding the 4th highest number
+};
 
-// Passing functions as arguments
-function doOperationOn(x, operation) {
-  return operation(x);
-}
-
-var result = doOperationOn(5, multiplyBy3);
-console.log(result);
-result = doOperationOn(100, doubleAll);
-console.log(result);
+fn50();
