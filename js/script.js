@@ -1,48 +1,49 @@
-var fn50 = function(){
-    var reverseSort = function(myArray,highest){
-        var x = 0,
-            y = 0,
-            z = 0,
-            temp = 0,
-            totalNum = myArray.length, // total numbers in array
-            flag = false, // is the numbers sorted in reverse while iteration
-            isAchieved = false; // whether we achieved the nth highest
-
-        while(x < totalNum){
-            y = x + 1; // start comparing 'yth' number which is next to 'xth' number.
-
-            if(y < totalNum){
-                // start comparing 'xth' with the next number, and if 'xth' number less than its next position number, just swipe them
-                for(z = y; z < totalNum; z++){
-
-                    if(myArray[x] < myArray[z]){
-                        temp = myArray[z];
-                        myArray[z] = myArray[x];
-                        myArray[x] = temp;
-                        flag = true; // if number swiping done ?
-                    }else{
-                        continue;
-                    }   
-                }                   
-            }
-
-            if(flag){
-                flag = false;
-            }else{
-                x++; // x holds the max number in series, now move to next position to find next highest number 
-                if(x > highest){ // if x is what the desired max number which we want flag it and break the loop to escape further iteration.
-                    isAchieved = true;
-                }   
-            }
-            if(isAchieved){
-                break;
-            }
+function findKthLargest(nums, k) {
+    if (k < 1 || nums == null) {
+        return 0;
+    }
+    return getKth(nums.length - k +1, nums, 0, nums.length - 1);
+}
+ 
+function getKth(k, nums, start, end) {
+ 
+    var pivot = nums[end];
+ 
+    var left = start;
+    var right = end;
+ 
+    while (true) {
+ 
+        while (nums[left] < pivot && left < right) {
+            left++;
         }
+ 
+        while (nums[right] >= pivot && right > left) {
+            right--;
+        }
+ 
+        if (left == right) {
+            break;
+        }
+ 
+        swap(nums, left, right);
+    }
+ 
+    swap(nums, left, end);
+ 
+    if (k == left + 1) {
+        return pivot;
+    } else if (k < left + 1) {
+        return getKth(k, nums, start, left - 1);
+    } else {
+        return getKth(k, nums, left + 1, end);
+    }
+}
+ 
+function swap(nums, n1, n2) {
+    var tmp = nums[n1];
+    nums[n1] = nums[n2];
+    nums[n2] = tmp;
+}
 
-        print(myArray[(highest - 1)]);  
-    };
-
-    reverseSort([12,56,78,34,11,100,95],4); // passing the unsorted array of number's, and finding the 4th highest number
-};
-
-fn50();
+console.log(findKthLargest([1,2,5,3,7,4],2));
