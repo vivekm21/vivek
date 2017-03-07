@@ -2,7 +2,7 @@ var cnt= 0;
 function sayHello () {
   var name =
    document.getElementById("name").value;
-   var message = "<h2>Hello " + name + "!</h2>";
+   var message = "<h2>Details: " + name + "!</h2>";
 
  
   document
@@ -18,13 +18,13 @@ function sayHello () {
 {
  
     title += " & Lovin' it!";
-     cnt=++;
+      cnt=++;
 }
     document
         .querySelector("h1")
         .textContent = title;
   }
-else{
+else {
        cnt=0;
         var title = "A028"
        document
